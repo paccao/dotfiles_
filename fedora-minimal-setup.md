@@ -14,6 +14,21 @@ There should be about 500-600 packages installed, check with:
 There should be about 100-150 background processes, check with:
 `ps aux | wc -l`
 
+Install git with `dnf in git-all`. Set up ssh key with github etc.
+Configure git:
+`git config --global user.name "bob"`
+`git config --global user.email "example@email.com"`
+You may need to restart the command line for the changes to take place. Right now you are in a bare bones shell called tty.
+
+Some helpful commands in tty:
+`reset`
+`logout`
+`WIN+right/left arrow` to change tty session
+
 That's the initial steps. Now I'm gonna run through what I personally installed to set up my system.
 
 ## Set up tiling window manager
+Download RiverWM with `sudo dnf in river`. You can follow this guide for a more in-depth set up: [Link](https://leon_plickat.srht.site/blog/setting-up-river-010/article.html)
+
+When you have downloaded river you can run it manually in tty with the command `river`. At startup river reads from a config file at ~/.config/river/init which will be the starting point to get river to behave how you'd like. However, the default behaviour is just an empty soul-less screen. Let's change that.
+
