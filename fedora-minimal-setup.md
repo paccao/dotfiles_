@@ -77,6 +77,12 @@ Install sway
 
 `dnf install --setopt install_weak_deps=false sway`
 
+`mkdir ~/.config/sway`
+
+`cp /etc/sway/config ~/.config/sway/config`
+
+now you can first run `weston` then run `sway`
+
 ## Resources
 
 https://bcksp.blogspot.com/2017/09/making-minimal-graphical-operating.html
