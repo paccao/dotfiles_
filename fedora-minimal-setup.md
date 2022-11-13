@@ -83,6 +83,13 @@ Install sway
 
 now you can first run `weston` then run `sway`
 
+Install programs:
+`sudo dnf -y in fira-code-fonts fontawesome-fonts powerline-fonts mako pavucontrol ranger rofi swaylock waybar wl-clipboard grim slurp alacritty`
+
+Other helpful programs: mpv, mpd, mpc
+
 ## Resources
 
 https://bcksp.blogspot.com/2017/09/making-minimal-graphical-operating.html
+
+https://computingforgeeks.com/setup-sway-tiling-window-manager-on-fedora-with-waybar/
