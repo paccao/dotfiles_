@@ -32,3 +32,51 @@ Download RiverWM with `sudo dnf in river`. You can follow this guide for a more 
 
 When you have downloaded river you can run it manually in tty with the command `river`. At startup river reads from a config file at ~/.config/river/init which will be the starting point to get river to behave how you'd like. However, the default behaviour is just an empty soul-less screen. Let's change that.
 
+
+
+# Second edition
+
+## Download and initial installation
+Download the fedora network installer [Fedora Server](https://alt.fedoraproject.org/).
+Boot the iso and run through the installation program. In the net installer you can select which packages to include in your installation.
+I ticked the box for "Minimal installation" instead of the default value "Fedora Server". This will install a minimal version of fedora where you can pick your software on your own.
+I also included the ~"Standard utils package" to include some useful utils to the terminal by default.
+
+After the installation process you get greeted with the default shell in fedora. Run `dnf up` to update your system.
+
+There should be about 500-600 packages installed, check with:
+`rpm -qa | wc -l`
+
+There should be about 100-150 background processes, check with:
+`ps aux | wc -l`
+
+Download X server and compositor, background manager, text editor, web browser:
+`sudo dnf in @base-x xorg-x11-xinit nitrogen vim firefox picom`
+
+## Install Window manager
+
+`sudo dnf in sway`
+
+# Third edition
+
+`sudo dnf in --setopt install_weak_deps=false weston htop`
+
+Now you can run a sluggish framebuffer GUI by typing
+`weston-launch`
+
+Kill that process by opening a terminal and run
+`pkill weston`
+
+Install modern accelerated drivers
+`dnf install --setopt install_weak_deps=false mesa-dri-drivers`
+
+Run weston with drivers
+`weston-launch -- -B drm-backend.so`
+
+Install sway
+
+`dnf install --setopt install_weak_deps=false sway`
+
+## Resources
+
+https://bcksp.blogspot.com/2017/09/making-minimal-graphical-operating.html
