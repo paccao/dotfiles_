@@ -1,4 +1,5 @@
 # Minimal fedora installation guide
+Fedora 36
 
 ## Download and initial installation
 Download the fedora network installer [Fedora Server](https://alt.fedoraproject.org/).
@@ -84,10 +85,19 @@ Install sway
 now you can first run `weston` then run `sway`
 
 Install programs:
-`sudo dnf -y in fira-code-fonts fontawesome-fonts powerline-fonts mako pavucontrol ranger rofi swaylock waybar wl-clipboard grim slurp alacritty`
+`sudo dnf -y in fira-code-fonts fontawesome-fonts powerline-fonts mako pavucontrol ranger rofi swaylock waybar wl-clipboard grim slurp alacritty tmux`
 
 Other helpful programs: mpv, mpd, mpc
 
+Add your dotfiles for `vim, bash, tmux, sway`, etc.
+Swaywm dotfile filepath is located at: /etc/sway/config
+
+Change default editor to vim:
+`which vim`
+Copy the path and set the global to that path.
+`export EDITOR="/usr/bin/vim"`
+
+For more docs about sway, `man 1 sway`
 ## Resources
 
 https://bcksp.blogspot.com/2017/09/making-minimal-graphical-operating.html
