@@ -1,0 +1,233 @@
+
+# Mod keys, Mod4 for WIN-key, Mod1 for Alt-key
+set $mod Mod4
+set $mod Mod1
+
+# Set your terminal
+set $terminal alacritty
+
+# Start a terminal
+bindsym $mod+Return exec $terminal
+bindsym $mod+d exec $terminal
+
+# Kill focused window
+bindsym $mod+Shift+q kill
+bindsym $mod1+F4 kill
+
+font pango: Inconsolata 13
+
+# Start dmenu (a program launcher)
+bindsym $mod+x exec --no-startup-id rofi -show run -m -1
+
+# Change focus
+bindsym $mod+h focus left
+bindsym $mod+l focus right
+bindsym $mod+k focus up
+bindsym $mod+j focus down 
+
+# Change focus with arrow keys
+bindsym $mod+Left focus left
+bindsym $mod+Right focus right 
+bindsym $mod+Up focus up 
+bindsym $mod+Down focus down 
+
+# Move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+l move right 
+bindsym $mod+Shift+k move up 
+bindsym $mod+Shift+j move down 
+
+# Move focused window with arrow keys
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Right move right 
+bindsym $mod+Shift+Up move up 
+bindsym $mod+Shift+Down move down 
+
+# Split into horizontal & vertical orientation 
+bindsym $mod+Shift+h split h
+bindsym $mod+Shift+v split v
+
+# Enter fullscreen mode on focused container
+bindsym $mod+f fullscreen toggle
+
+# Change container layout (stacked, tabbed, toggle split)
+bindsym $mod+Shift+s layout stacking
+bindsym $mod+Shift+w layout tabbed
+bindsym $mod+Shift+t layout tabbed
+bindsym $mod+Shift+e layout toggle split
+
+# Change focus between tiling & floating windows
+bindsym $mod+Control+space focus mode_toggle
+
+# Workspace variables
+set $ws1 "1: "
+set $ws2 "2: "
+set $ws3 "3: "
+set $ws4 "4: "
+set $ws5 "5: "
+set $ws6 "6: "
+set $ws7 "7: "
+
+# Switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+
+# Move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+
+# Reload the configuration file
+bindsym $mod+Shift+c reload
+
+# Restart Window manager (preserves layout)
+bindsym $mod+Shift+r restart
+
+# Exit sway (Logs you out of your X session)
+bindsym $mod+Shift+m exec swaynag -t warning -m 'Do you really want to exit sway' -b 'Yes, exit sway' 'swaymsg exit'
+
+# Hibernate
+bindsym $mod+Shift+n exec swaynag -t warning -m 'Put device to sleep?' -b 'ZzZz....' 'systemctl hibernate'
+
+# Resize window (You can also use mouse for that)
+mode "resize" {
+	bindsym h resize shrink width 10 px or 10 ppt
+	bindsym l resize grow width 10 px or 10 ppt
+	bindsym j resize shrink height 10 px or 10 ppt
+	bindsym k resize grow height 10 px or 10 ppt
+	bindsym h resize shrink width 10 px or 10 ppt
+	bindsym l resize grow width 10 px or 10 ppt
+	bindsym j resize shrink height 10 px or 10 ppt
+	bindsym k resize grow height 10 px or 10 ppt
+
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+# Find files with rofi_finder (Not set up yet)
+# bindsym $mod+Shift+f exec ~/.config/i3/bin/rofi_finder
+
+### Custom key bindings
+
+# Lock screen
+bindsym $mod+l exec swaylock
+
+# Pulse Audio controls
+# run pactl list sinks
+
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume $(pacmd list-sinks | awk '/* index:/{print $3}') +5% # Raise
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume $(pacmd list-sinks | awk '/* index:/{print $3}') -5% # Lower
+bindsym XF86AudioMute exec pactl set-sink-mute $(pacmd list-sinks | awk '/* index:/{print $3}') toggle # Mute
+
+# Screen brightness controls -- # https://github.com/haikarainen/light
+bindsym XF86MonBrightnessUp exec light -A 5 # Increase screen brightness
+bindsym XF86MonBrightnessDown exec light -U 5 # Decrease screen brightness
+
+# Multimedia keys
+#bindsym XF86AudioPlay	exec "mpc toggle"
+#bindsym XF86AudioStop	exec "mpc stop"
+#bindsym XF86AudioNext	exec "mpc next"
+#bindsym XF86AudioPrev	exec "mpc prev"
+#bindsym XF86AudioPause	exec "mpc pause"
+
+
+bar {
+	swaybar_command waybar
+	workspace_buttons yes
+}
+
+# Startup programs
+#exec --no-startup-id mpd
+
+#exec_always feh --bg-scale ~/Pictures
+#exec --no-startup-id /usr/lib/gsd-xsettings
+
+# Bind application to workspace
+# Check class by : xprop
+# swaymsg -t get_tree
+assign [class="Firefox"] $ws2
+assign [class="Bitwarden"] $ws7
+
+# Press $mod+o followed by either f, t, Esc or Return to launch firefox or other programs or return to default mode, respectively.
+set $mode_launcher Launcher
+bindsym $mod+o mode "$mode_launcher"
+
+mode "$mode_launcher" {
+	bindsym m exec terminator
+	bindsym n exec nautilus
+	bindsym v exec virt-manager
+	bindsym d exec deepin-screenshot
+	bindsym Return mode "default"
+}
+
+# Shutdown, Reboot, Lock Screen and Logout
+set $power_mode "power"
+bindsym $mod+Shift+q	mode $power_mode
+mode $power_mode {
+	bindsym p	exec systemctl poweroff
+	bindsym r	exec systemctl reboot
+#	bindsym l	exec swaylock -i ~/Pictures
+	bindsym q	exec --no-startup-id i3-msg exit, mode "default"
+	bindsym h	exec systemctl hibernate
+#	bindsym s	exec sudo /lib/systemd/systemd-sleep hybrid-sleep
+	bindsym s	exec pm-suspend	
+	bindsym Return	exec mode "default"
+	bindsym Escape	exec mode "default"
+}
+
+# Floating windows
+
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="bubble"] floating enable
+for_window [window_role="task_dialog"] floating enable
+for_window [window_role="Preferences"] floating enable
+
+for_window [window_role="task_dialog|bubble|page-info|Preferences|pop-up"] floating enable
+for_window [window_role="Open Files"] floating enable sticky
+for_window [window_role="File Operation Progress"] floating enable sticky
+for_window [window_role="Save As"] floating enable
+
+# Sticky window
+for_window [instance="file_progress"]  sticky enable
+for_window [class="info|Mate-color-select|gcolor2|timesup|QtPass|GtkFileChooserDialog"] sticky enable
+
+# Focus window settings
+no_focus [window_role="pop-up"]
+focus_on_window_activation focus 
+#for_window [class="(?i)"] focus 
+
+# Rename workspace with i3-input using numbers and text
+
+#bindsym $mod+n exec i3-input -F 'rename workspace to "%s"' -P 'New name for this workspace: '
+
+#for_window [class="chromium" instance="chromium"] border none
+
+# screenshot
+bindsym --release Print exec --no-startup-id "maim -p 0 -c 0.96,0.5,0.09 $HOME/Pictures/screenshot-$(date +%Y-%m-%d_%H-%M-%S).png"
+bindsym --release Shift+Print exec --no-startup-id "maim -s -p 0 -c 0.96,0.5,0.09 $HOME/Pictures/screenshot-$(date +%Y-%m-%d_%H-%M-%S).png"
+
+### GESTURES FOR TOUCHPAD BELOW? (Not sure)
+# Configure outputs here
+# How to get outputs configurable - $ swaymsg -t get_outputs
+# output eDP-1 {
+#                background ~/Pictures/bestFriend-wallpaper-07-1920x1200.png fill
+#                resolution 1920x1080
+#		scale 1.4
+#           }
+
+# Inputs - Get your inputs with the command:
+# swaymsg -t get_inputs
+#input 1267:35:Elan_Touchpad {
+#    tap enabled
+#    natural_scroll enabled
