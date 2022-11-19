@@ -126,7 +126,7 @@ Now install some core programs to get started.
 Set your default editor in your env files with the output of `which vim`, in my case it is `export EDITOR='/usr/bin/vim` and `export SUDO_EDITOR='/usr/bin/vim`
 
 Install graphics related stuff and useful programs
-`sudo dnf in -y sddm picom polybar rofi sxhkd thunar xclip nitrogen firefox rxvt-unicode neofetch arandr`
+`sudo dnf in -y sddm picom polybar rofi sxhkd thunar xclip nitrogen firefox rxvt-unicode neofetch arandr feh tldr`
 
 Fonts (Optional)
 `fira-code-fonts fontawesome-fonts powerline-fonts`
@@ -153,9 +153,11 @@ Add the locally generated key to your ssh-agent
 Now add that key to your GitHub account. [Link to GitHub settings](https://github.com/settings/keys).
 
 
-Clone your dotfiles.
+Clone your dotfiles. Add them to your home directory `cp dotfiles/ ~`
 `git clone git@github.com:paccao/dotfiles_.git`
 `git clone git@github.com:endeavouros-team/endeavouros-i3wm-setup.git`
+
+Configure the .Xresources for color themes in your terminal. To reload the config file run `xrdb ~/.Xresources` then restart your terminal emulator.
 
 ## Resources
 
@@ -163,3 +165,5 @@ Clone your dotfiles.
 [i3wm setup](https://www.youtube.com/watch?v=j1I63wGcvU4&list=PL5ze0DjYv5DbCv9vNEzFmP6sU7ZmkGzcf)
 [Fedora from scratch with Xorg](https://www.youtube.com/watch?v=oa3LDqV4-cc)
 Endeavour OS i3wm [setup guide](https://github.dev/endeavouros-team/endeavouros-i3wm-setup).
+urxvt terminal emulator configuration [guide](https://smarttech101.com/urxvt-installation-color-scheme-fonts-resize-etc/)
+good to know urxvt resources, [read more](https://smarttech101.com/urxvt-installation-color-scheme-fonts-resize-etc/)
