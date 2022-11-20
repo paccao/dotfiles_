@@ -159,6 +159,10 @@ Clone your dotfiles. Add them to your home directory `cp dotfiles/ ~`
 
 Configure the .Xresources for color themes in your terminal. To reload the config file run `xrdb ~/.Xresources` then restart your terminal emulator.
 
+Install dunst notification manager that endeavouros uses. Copy the dunst config to your system. `cp endeavouros-i3wm-setup/.config/dunst/ ~/.config`
+
+
+
 ## Resources
 
 [rxvt-unicode setup](https://www.youtube.com/watch?v=_kjbj-Ez1vU)
