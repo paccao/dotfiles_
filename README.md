@@ -1,5 +1,6 @@
 # Debian Minimal with i3
 
+The Debian configuration was copied from https://github.com/ChrisTitusTech/Debian-titus installation and modified to fit my own needs. Credits to them!
 ## Requirements
 
 _This install changes Debian to the SID (Dev) Branch_
