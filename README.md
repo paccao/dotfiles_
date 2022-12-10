@@ -16,5 +16,5 @@ git clone https://github.com/paccao/dotfiles_
 cd dotfiles_/Debian
 ./install.sh
 
-##How to install the vim plugin YouCompleteMe:
+## How to install the vim plugin YouCompleteMe:
 [Link](https://ethans.me/posts/2018-09-01-installing-vim-with-youcompleteme-plugin-to-enable-autocomplete/)
