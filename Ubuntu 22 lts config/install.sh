@@ -35,3 +35,8 @@ mv user-dirs.dirs /home/$username/.config
 chown -R $username:$username /home/$username
 tar -xzvf sugar-candy.tar.gz -C /usr/share/sddm/themes
 mv /home/$username/.config/sddm.conf /etc/sddm.conf
+
+# Installing sugar-candy dependencies
+nala install libqt5svg5 qml-module-qtquick-controls qml-module-qtquick-controls2 -y
+# Installing Essential Programs
+nala install feh i3 sxhkd urxvt rofi i3status picom thunar nitrogen lxpolkit x11-xserver-utils unzip yad wget pulseaudio pulseeffects pavucontrol vim tmux -y
