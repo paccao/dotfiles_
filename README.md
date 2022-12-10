@@ -16,6 +16,7 @@ _do NOT grab the EDU download and this includes non-free and firmware_
 ```
 git clone https://github.com/paccao/dotfiles_
 cd dotfiles_/Debian
+chmod +x install.sh
 ./install.sh
 ```
 ## How to install the vim plugin YouCompleteMe:
