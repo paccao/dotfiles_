@@ -12,6 +12,8 @@ fi
 cp /etc/apt/sources.list /etc/apt/sources.list.bak
 cp sources.list /etc/apt/sources.list
 
+cd ~/dotfiles_/Debian
+
 username=$(id -u -n 1000)
 builddir=$(pwd)
 
@@ -34,7 +36,7 @@ cp -R Backgrounds /home/$username/Pictures/
 mv user-dirs.dirs /home/$username/.config
 chown -R $username:$username /home/$username
 tar -xzvf sugar-candy.tar.gz -C /usr/share/sddm/themes
-mv /home/$username/.config/sddm.conf /etc/sddm.conf
+mv $builddir/.config/sddm.conf /etc/sddm.conf
 
 ## Installing sugar-candy dependencies
 #nala install libqt5svg5 qml-module-qtquick-controls #qml-module-qtquick-controls2 -y
