@@ -196,7 +196,6 @@ client.background       #212121
 
 # keybinding to lock screen
 bindsym $mod+l exec "i3lock -c 000000"
-
 # auto lock the screen
 exec "xautolock -detectsleep -time 3 -locker \"i3lock -c 000000\""
 
@@ -209,4 +208,6 @@ bindsym $mod+Space exec "setxkbmap -option 'grp:win_space_toggle' -layout us,sv"
 # keybinding in fancy rofi (automated):
 bindsym F1 exec ~/.config/i3/scripts/keyhint-2
 
-exec_always nitrogen --restore
+exec --no-startup-id lxpolkit
+exec picom
+exec nitrogen --restore
