@@ -12,9 +12,9 @@ _do NOT grab the EDU download and this includes non-free and firmware_
 
 ### To install, run the following in a terminal:
 
-git clone https://github.com/paccao/dotfiles_
+`git clone https://github.com/paccao/dotfiles_
 cd dotfiles_/Debian
 ./install.sh
-
+`
 ## How to install the vim plugin YouCompleteMe:
 https://ethans.me/posts/2018-09-01-installing-vim-with-youcompleteme-plugin-to-enable-autocomplete/
