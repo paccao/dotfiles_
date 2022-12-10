@@ -39,4 +39,6 @@ mv /home/$username/.config/sddm.conf /etc/sddm.conf
 # Installing sugar-candy dependencies
 nala install libqt5svg5 qml-module-qtquick-controls qml-module-qtquick-controls2 -y
 # Installing Essential Programs
-nala install feh i3 sxhkd urxvt rofi i3status picom thunar nitrogen lxpolkit x11-xserver-utils unzip yad wget pulseaudio pulseeffects pavucontrol vim tmux -y
+nala install feh i3 sxhkd urxvt rofi picom thunar nitrogen lxpolkit x11-xserver-utils unzip yad wget pulseaudio pulseeffects pavucontrol vim tmux -y
+# Installing Other less important Programs
+nala install neofetch flameshot lxappearance papirus-icon-theme fonts-noto-color-emoji sddm -y
